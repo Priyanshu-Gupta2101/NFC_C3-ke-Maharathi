@@ -22,7 +22,33 @@ const userSchema = new mongoose.Schema({
   gender: {
     type: String,
     enum: ['male', 'female', 'other']
-  }
+  },
+  income: [
+    {
+      itemName:{
+         type:String
+      },
+      price: {
+        type: Number
+      },
+      date: {
+        type: Date
+      },
+    },
+  ],
+  expense: [
+    {
+     itemName:{
+        type:String
+      },
+      price: {
+        type: Number
+      },
+      date: {
+        type: Date
+      },
+    },
+  ]
 });
 
 const User = mongoose.model('User', userSchema);
