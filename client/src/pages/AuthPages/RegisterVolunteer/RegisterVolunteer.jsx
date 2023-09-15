@@ -6,7 +6,6 @@ import "./RegisterVolunteer.css";
 import axios from "axios";
 import { useAuth } from "../../../context/AuthProvider";
 const RegVol = () => {
-  const [message, setMessage] = useState("");
   const [auth, setAuth] = useAuth();
   const [formData, setFormData] = useState({
     name: "",
@@ -63,15 +62,15 @@ const RegVol = () => {
 
       // Make a POST request to the specified endpoint
       const response = await axios.post(
-        "/api/v1/auth/volunteer/register",
+        "http://localhost:5000/api/v1/auth/volunteer/register",
         postData
       );
 
       // Check the response and display a success message
       if (response.status === 201) {
-        setMessage("Registration successful!");
+        alert("Registration successful! Please Login to continue.");
       } else {
-        setMessage("Registration failed. Please try again.");
+        alert("Registration failed. Please try again.");
       }
     } catch (error) {
       console.error("Error during registration:", error);
@@ -79,17 +78,20 @@ const RegVol = () => {
     }
   };
 
-  const handleSubmitUserLog = async (e) => {
+  const handleSubmitVolunteerLog = async (e) => {
     e.preventDefault();
 
     try {
       const postData = {
-        email: formData.email,
-        password: formData.password,
+        email: formDataLog.email,
+        password: formDataLog.password,
       };
 
       // Make a POST request to the specified endpoint
-      const res = await axios.post("/api/v1/auth/volunteer/login", postData);
+      const res = await axios.post(
+        "http://localhost:5000/api/v1/auth/volunteer/login",
+        postData
+      );
 
       // Check the response and display a success message
       if (res && res.data.success) {
@@ -112,19 +114,6 @@ const RegVol = () => {
       <div className="forms-container">
         <div className="signin-signup">
           <form onSubmit={handleSubmitVolunteerLog} className="sign-in-form">
-            {message && (
-              <div className="msg-container" style={{ marginTop: "0px" }}>
-                <p
-                  className="message"
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "green",
-                  }}
-                >
-                  {message}
-                </p>
-              </div>
-            )}
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user" />
@@ -164,14 +153,6 @@ const RegVol = () => {
             </div>
           </form>
           <form onSubmit={handleSubmitVolunteer} className="sign-up-form">
-            {msg && (
-              <p
-                className="message"
-                style={{ fontSize: "1.5rem", color: "green" }}
-              >
-                {msg}
-              </p>
-            )}
             <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user" />
