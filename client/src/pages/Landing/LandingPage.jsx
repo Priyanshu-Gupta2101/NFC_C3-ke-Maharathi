@@ -3,6 +3,7 @@ import Stats from "./Stats";
 import Featured from "./Featured";
 import Blog from "./Blog";
 import Navbar from "../../components/Navbar";
+import ShikshaBot from "../../components/ShikshaBot/ShikshaBot";
 export default function Example() {
   return (
     <div className="bg-white">
@@ -68,6 +69,7 @@ export default function Example() {
           />
         </div>
       </div>
+      <ShikshaBot />
       <Stats />
       <Featured />
       <Blog />
