@@ -1,7 +1,16 @@
-import React from "react";
+import HomeScreen from "./pages/Home";
+import Room from "./pages/Room";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App = () => {
-  return <div>App</div>;
-};
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/room" element={<Room />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App;
