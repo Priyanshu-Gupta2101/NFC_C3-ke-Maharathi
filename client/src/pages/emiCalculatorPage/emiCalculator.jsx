@@ -1,124 +1,188 @@
-import React, { useState } from 'react';
-import './emiCalculator.css';
+import { useEffect, useState } from "react";
+import './emiCalculator.css'
+import Navbar from "../../components/Navbar";
 
 function EMICalculator() {
-  const [loanType, setLoanType] = useState('home');
-  const [tenureType, setTenureType] = useState('year');
-  const [loanAmount, setLoanAmount] = useState('');
-  const [interestRate, setInterestRate] = useState('');
-  const [loanTenure, setLoanTenure] = useState('');
-  const [result, setResult] = useState(null);
+  const [totalLoanAmount, setTotalLoanAmount] = useState(1000000);
+  const [tenure, setTenure] = useState(5);
+  const [rateOfInterest, setRateOfInterest] = useState(6.5);
 
-  const handleLoanTypeChange = (type) => {
-    setLoanType(type);
+  const [monthlyEMI, setMonthlyEMI] = useState(0);
+  const [totalInterest, setTotalInterest] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const [totalLoanError, setTotalLoanError] = useState("input");
+  const [tenureError, setTenureError] = useState("input");
+  const [rateOfInterestError, setRateOfInterestError] = useState("input");
+
+  const calculateEMI = () => {
+    if (!Number(rateOfInterest) || !Number(tenure) || !Number(totalLoanAmount)) {
+      return;
+    }
+    let interest = rateOfInterest / 12 / 100;
+    let tenureInMonths = tenure * 12;
+
+    // Sample: 1000000*0.006*(1+0.006)**120 / ((1+0.006) ** 120 -1)
+    let emi =
+      (totalLoanAmount * interest * Math.pow(1 + interest, tenureInMonths)) /
+      (Math.pow(1 + interest, tenureInMonths) - 1);
+
+    let totalAmt = emi * tenureInMonths;
+    let totalInt = totalAmt - totalLoanAmount;
+
+    setMonthlyEMI(Math.floor(emi));
+    setTotalAmount(Math.ceil(totalAmt));
+    setTotalInterest(Math.ceil(totalInt));
   };
 
-  const handleTenureTypeChange = (type) => {
-    setTenureType(type);
+  useEffect(() => {
+    calculateEMI();
+  }, [totalLoanAmount, tenure, rateOfInterest]);
+
+  const handleTotalLoanChange = (e) => {
+    // if (e.target.value.length < 6 || e.target.value.length > 8) {
+    //   setTotalLoanError("input error");
+    // } else {
+    //   setTotalLoanError("input");
+    // }
+    setTotalLoanAmount(parseInt(e.target.value));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleTenureChange = (e) => {
+    // if (e.target.value > 40 || e.target.value < 1) {
+    //   setTenureError("input error");
+    // } else {
+    //   setTenureError("input");
+    // }
+    setTenure(parseFloat(e.target.value));
+  };
 
-    // Your calculation logic here
-    // Calculate EMI, interest, and total based on input values
-    // You can use the same logic you had in your JavaScript file.
-
-    // Example calculation:
-    const emi = loanAmount * interestRate * loanTenure;
-    const interest = emi - loanAmount;
-    const total = emi + interest;
-
-    setResult({ emi, interest, total });
+  const handleRateOfInterestChange = (e) => {
+    // if (e.target.value > 45 || e.target.value < 1) {
+    //   setRateOfInterestError("input error");
+    // } else {
+    //   setRateOfInterestError("input");
+    // }
+    setRateOfInterest(parseFloat(e.target.value).toFixed(2));
   };
 
   return (
-    <div className="container">
-      <nav>
-        <div className="nav-center">
-          <h2>EMI calculator</h2>
+    <>
+     <Navbar />
+      <div className="emi">
+        <h1>EMI Calculator</h1>
+        <div className="loan-container">
+          <div className="title-container">
+            <label htmlFor="loan-amount" className="label">
+              Loan amount
+            </label>
+            <div className={`value-container ${totalLoanError.includes("error") ? "error" : ""}`}>
+              <span>₹</span>
+              <input
+                type="number"
+                className={totalLoanError}
+                style={{ width: "100px" }}
+                value={totalLoanAmount}
+                onChange={handleTotalLoanChange}
+              />
+            </div>
+          </div>
+          <input
+            id="loan-amount"
+            name="loan-amount"
+            type="range"
+            min="1"
+            max="10000"
+            step="1"
+            className="input"
+            placeholder="0"
+            value={totalLoanAmount}
+            onChange={handleTotalLoanChange}
+          />
         </div>
-      </nav>
-      <main className="todelete">
-        <form className="main" onSubmit={handleSubmit}>
-          <a
-            className={`hloan ${loanType === 'home' ? 'setNormal' : 'setDefault'}`}
-            onClick={() => handleLoanTypeChange('home')}
-          >
-            home loan
-          </a>
-          <a
-            className={`cloan ${loanType === 'car' ? 'setNormal' : 'setDefault'}`}
-            onClick={() => handleLoanTypeChange('car')}
-          >
-            car loan
-          </a>
-          <a
-            className={`ploan ${loanType === 'personal' ? 'setNormal' : 'setDefault'}`}
-            onClick={() => handleLoanTypeChange('personal')}
-          >
-            personal loan
-          </a>
-          <div className="form-row">
-            <label htmlFor="loanAmount">Enter the {loanType} loan amount</label>
-            <input
-              type="number"
-              id="loanAmount"
-              className="amount"
-              autoComplete="off"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(e.target.value)}
-            />
-            <label htmlFor="interestRate">Interest rate</label>
-            <input
-              type="number"
-              id="interestRate"
-              className="interest_val"
-              autoComplete="off"
-              value={interestRate}
-              onChange={(e) => setInterestRate(e.target.value)}
-            />
-            <label htmlFor="loanTenure">Loan tenure</label>
-            <input
-              type="number"
-              id="loanTenure"
-              className="tenure"
-              autoComplete="off"
-              value={loanTenure}
-              onChange={(e) => setLoanTenure(e.target.value)}
-            />
-            <button className={`year ${tenureType === 'year' ? 'setNormal' : 'setDefault'}`} onClick={() => handleTenureTypeChange('year')}>
-              yr
-            </button>
-            <button className={`month ${tenureType === 'month' ? 'setNormal' : 'setDefault'}`} onClick={() => handleTenureTypeChange('month')}>
-              mo
-            </button>
-            <button type="submit" className="block">
-              Calculate
-            </button>
-          </div>
-        </form>
-        {result && (
-          <div className="result">
-            <div className="result-part1">
-              <div className="emi">
-                <h3>Loan EMI</h3>
-                <h3>{result.emi}/-</h3>
-              </div>
-              <div className="interest">
-                <h3>Interest</h3>
-                <h3>{result.interest}/-</h3>
-              </div>
-            </div>
-            <div className="total">
-              <h3 style={{ marginBottom: 0 }}>Total</h3>
-              <h3 style={{ marginTop: 0 }}>(Principle + Payable)</h3>
-              <h3>{result.total}/-</h3>
+
+        <div className="interest-container">
+          <div className="title-container">
+            <label htmlFor="interest" className="label">
+              Rate of interest (p.a)
+            </label>
+            <div className={`value-container ${rateOfInterestError.includes("error") ? "error" : ""}`}>
+              <input
+                type="number"
+                className={rateOfInterestError}
+                style={{ width: "100px", textAlign: "right" }}
+                value={rateOfInterest}
+                onChange={handleRateOfInterestChange}
+              />
+              <span className={`${rateOfInterestError.includes("error") ? "error" : ""}`}>%</span>
             </div>
           </div>
-        )}
-      </main>
-    </div>
+          <input
+            id="loan-amount"
+            name="loan-amount"
+            type="range"
+            min="1"
+            max="45"
+            step="0.1"
+            className="input"
+            value={rateOfInterest}
+            onChange={handleRateOfInterestChange}
+          />
+        </div>
+
+        <div className="tenure-container">
+          <div className="title-container">
+            <label htmlFor="tenure" className="label">
+              Loan tenure
+            </label>
+            <div className={`value-container ${tenureError.includes("error") ? "error" : ""}`}>
+              <input
+                type="number"
+                className={tenureError}
+                style={{ width: "100px", textAlign: "right" }}
+                value={tenure}
+                onChange={handleTenureChange}
+              />
+              <span>Yr</span>
+            </div>
+          </div>
+
+          <input
+            name="tenure"
+            id="tenure"
+            type="range"
+            min="1"
+            max="45"
+            step="0.1"
+            className="input"
+            value={tenure}
+            onChange={handleTenureChange}
+          />
+        </div>
+
+        <div className="result-container">
+          <div className="values">
+            <span>Monthly EMI</span>
+            <span>₹ {monthlyEMI.toLocaleString("en-IN")}</span>
+          </div>
+
+          <div className="values">
+            <span>Principal amount</span>
+            <span>₹ {totalLoanAmount ? totalLoanAmount.toLocaleString("en-IN") : 0}</span>
+          </div>
+
+          <div className="values">
+            <span>Total interest</span>
+            <span>₹ {totalInterest.toLocaleString("en-IN")}</span>
+          </div>
+
+          <div className="values">
+            <span>Total amount</span>
+            <span>₹ {totalAmount.toLocaleString("en-IN")}</span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

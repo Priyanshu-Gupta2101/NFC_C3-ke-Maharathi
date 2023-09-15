@@ -9,6 +9,7 @@ import LandingPage from "./pages/Landing/LandingPage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Faq from "./pages/Faq";
 
+
 function App() {
   return (
     <Routes>
