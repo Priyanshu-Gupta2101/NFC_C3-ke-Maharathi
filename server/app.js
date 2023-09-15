@@ -11,7 +11,8 @@ app.use(cors());
 
 
 app.use("/api/v1/auth",require('./routes/authRoutes'));
-
+app.use("/api/v1/expensetracker",require('./routes/expensetracker'));
+app.use("/api/v1/emiCalculator",require('./routes/emiCalculator'))
 
 const port = process.env.PORT || 8000;
 

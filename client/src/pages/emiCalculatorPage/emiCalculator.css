@@ -1,0 +1,33 @@
+/* EMICalculator.css */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400');
+
+/* Add your existing CSS styles here */
+/* ... (Copy and paste your existing CSS styles) */
+
+/* Your new styles go here */
+
+.container {
+  padding: 5rem 0;
+}
+
+.container-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-underline {
+  height: 0.2rem;
+  width: 7rem;
+  background: var(--primary-6);
+  margin: 0 auto;
+}
+
+/* Add any additional styles you need for your React component */
+
