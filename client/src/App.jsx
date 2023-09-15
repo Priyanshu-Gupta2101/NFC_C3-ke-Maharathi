@@ -1,3 +1,5 @@
+import RegUser from "./pages/AuthPages/Register/RegisterUser";
+import RegVol from "./pages/AuthPages/RegisterVolunteer/RegisterVolunteer";
 import HomeScreen from "./pages/Home";
 import Room from "./pages/Room";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -5,14 +7,13 @@ import LandingPage from "./pages/Landing/LandingPage";
 import Faq from "./pages/Faq";
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* <Route path="/" element={<HomeScreen />} /> */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/room" element={<Room />} />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/room" element={<Room />} />
+      <Route path="/register/user" element={<RegUser />} />
+      <Route path="/register/volunteer" element={<RegVol />} />
         <Route path="/faq" element={<Faq />} />
-      </Routes>
-    </BrowserRouter>
+    </Routes>
   );
 }
 
