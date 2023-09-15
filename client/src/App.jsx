@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomeScreen />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/room" element={<Room />} />
       <Route path="/register/user" element={<RegUser />} />
       <Route path="/register/volunteer" element={<RegVol />} />

@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faKeyboard } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const HomeScreen = () => {
   const [code, setCode] = useState("");
@@ -24,18 +26,30 @@ const HomeScreen = () => {
     window.open(host + "/room", "_blank");
   };
 
+  const { t } = useTranslation();
+
+  function handleClick(lang) {
+    i18next.changeLanguage(lang);
+  }
+
   return (
     <div className="flex flex-col h-screen text-[#E2E2E2]">
+      <nav
+        style={{ width: "100%", padding: "2rem 0", backgroundColor: "gray" }}
+      >
+        <button onClick={() => handleClick("en")}>English</button>
+        <button onClick={() => handleClick("ko")}>Korean</button>
+        <button onClick={() => handleClick("chi")}>Chinese</button>
+      </nav>
       <Header />
       <div className="flex md:flex-row flex-col px-4 items-center justify-around h-full pb-48">
         <div className="flex max-w-[500px]">
           <div className="content">
             <h2 className="md:text-[40px] text-[32px] font-normal m-0 text-center">
-              Premium video meetings. Now free for everyone.
+              {t("Thanks")} {t("Why")}
             </h2>
             <p className="text-[18px] font-light mt-4 text-center">
-              No need to sign up or create an account. Just start <br />a
-              meeting and share the link. That's it.
+              {t("vivek")}
             </p>
             <div className="m-10 flex items-center justify-around">
               <button
