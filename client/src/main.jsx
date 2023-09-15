@@ -5,6 +5,7 @@ import "./index.css";
 import { createStore } from "redux";
 import { userReducer } from "./store/reducer";
 import { Provider } from "react-redux";
+import "./i18n.jsx";
 
 export const store = createStore(userReducer);
 ReactDOM.createRoot(document.getElementById("root")).render(
