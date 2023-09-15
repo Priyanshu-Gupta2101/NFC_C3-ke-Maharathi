@@ -14,6 +14,7 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
+import { useNavigate } from "react-router-dom";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -24,9 +25,9 @@ const navigation = [
 
 const products = [
   {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
-    href: "#",
+    name: "Expense Tracker",
+    description: "Get a better understanding of your Expenses",
+    href: "/expense-tracker",
     icon: ChartPieIcon,
   },
   {
@@ -65,7 +66,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -112,6 +113,9 @@ export default function Navbar() {
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                      onClick={() => {
+                        navigate(item.href);
+                      }}
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                         <item.icon

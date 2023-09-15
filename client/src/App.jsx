@@ -4,7 +4,7 @@ import HomeScreen from "./pages/Home";
 import Room from "./pages/Room";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
-import Dashboard from "./components/Dashboard/Dashboard";
+import ExpenseTracker from "./components/Expense Tracker/ExpenseTracker";
 import Faq from "./pages/Faq";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Route path="/register/user" element={<RegUser />} />
       <Route path="/register/volunteer" element={<RegVol />} />
       <Route path="/faq" element={<Faq />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/expense-tracker" element={<ExpenseTracker />} />
     </Routes>
   );
 }
