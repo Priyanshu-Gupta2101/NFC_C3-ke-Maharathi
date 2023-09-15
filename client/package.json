@@ -28,11 +28,12 @@
     "chart.js": "^4.4.0",
     "dayjs": "^1.11.9",
     "firebase": "^8.7.0",
-    "google-translate-api": "^2.3.0",
     "framer-motion": "^10.16.4",
+    "google-translate-api": "^2.3.0",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-xhr-backend": "^3.2.2",
+    "leaflet": "^1.9.4",
     "node-google-translate-skidz": "^1.1.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -42,8 +43,8 @@
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.16.0",
-    "recharts": "^2.8.0",
     "react-text-to-speech": "^0.4.2",
+    "recharts": "^2.8.0",
     "redux": "^4.2.1"
   },
   "devDependencies": {
