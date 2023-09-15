@@ -1,6 +1,5 @@
 import {
   faAngleUp,
-  faClosedCaptioning,
   faDesktop,
   faMicrophone,
   faMicrophoneSlash,
