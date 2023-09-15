@@ -5,12 +5,18 @@ import "./index.css";
 import { createStore } from "redux";
 import { userReducer } from "./store/reducer";
 import { Provider } from "react-redux";
+import { AuthProvider } from "./context/AuthProvider.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 export const store = createStore(userReducer);
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <AuthProvider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </AuthProvider>
+
   // </React.StrictMode>,
 );

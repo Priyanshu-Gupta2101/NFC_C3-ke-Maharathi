@@ -1,15 +1,17 @@
+import RegUser from "./pages/AuthPages/Register/RegisterUser";
+import RegVol from "./pages/AuthPages/RegisterVolunteer/RegisterVolunteer";
 import HomeScreen from "./pages/Home";
 import Room from "./pages/Room";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomeScreen />} />
-        <Route path="/room" element={<Room />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomeScreen />} />
+      <Route path="/room" element={<Room />} />
+      <Route path="/register/user" element={<RegUser />} />
+      <Route path="/register/volunteer" element={<RegVol />} />
+    </Routes>
   );
 }
 
