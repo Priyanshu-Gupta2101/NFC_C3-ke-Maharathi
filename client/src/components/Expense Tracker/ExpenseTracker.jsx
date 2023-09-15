@@ -15,8 +15,17 @@ import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import Item from "@mui/material/ListItem";
 import ExpenseChart from "./ExpenseChart";
+import ExpenseTable from "./ExpenseTable";
+import * as React from "react";
 
 export default function Dashboard() {
+  const [type, setType] = React.useState(1);
+  const [amount, setAmount] = React.useState(0);
+  const [name, setName] = React.useState("");
+  const [date, setDate] = React.useState("");
+  const [transaction, setTransaction] = React.useState([]);
+  console.log(type, amount, name, date);
+  console.log(transaction);
   return (
     <div className="bg-white">
       <Navbar />
@@ -31,63 +40,90 @@ export default function Dashboard() {
           alignItems: "center",
         }}
       >
-        <Stack
-          direction="row"
-          divider={<Divider orientation="vertical" flexItem />}
-          spacing={2}
-        >
+        <Stack spacing={5}>
           <Item>
             <Stack
-              spacing={5}
-              sx={{
-                display: "flex",
-                justifyContent: "centre",
-                alignItems: "centre",
-              }}
+              direction="row"
+              divider={<Divider orientation="vertical" flexItem />}
+              spacing={2}
             >
-              <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="demo-simple-select-standard-label">
-                  Select Type
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  label="Select the type"
-                  defaultValue={1}
+              <Item>
+                <Stack
+                  spacing={5}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "centre",
+                    alignItems: "centre",
+                  }}
                 >
-                  <MenuItem value={1}>Credit</MenuItem>
-                  <MenuItem value={2}>Debit</MenuItem>
-                </Select>
-              </FormControl>
-              <TextField
-                id="standard-basic"
-                label="Enter the name"
-                variant="standard"
-                sx={{ width: "400px" }}
-              />
-              <FormControl variant="standard">
-                <InputLabel htmlFor="input-with-icon-adornment">
-                  Enter the amount
-                </InputLabel>
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <PaidIcon />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              <DatePicker />
-              <Button variant="contained" endIcon={<SendIcon />}>
-                Add Transaction
-              </Button>
+                  <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="demo-simple-select-standard-label">
+                      Select Type
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-standard-label"
+                      id="demo-simple-select-standard"
+                      label="Select the type"
+                      defaultValue={1}
+                      onChange={(e) => setType(e.target.value)}
+                      value={type}
+                    >
+                      <MenuItem value={1}>Credit</MenuItem>
+                      <MenuItem value={2}>Debit</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <TextField
+                    id="standard-basic"
+                    label="Enter the name"
+                    variant="standard"
+                    sx={{ width: "400px" }}
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                  />
+                  <FormControl variant="standard">
+                    <InputLabel htmlFor="input-with-icon-adornment">
+                      Enter the amount
+                    </InputLabel>
+                    <Input
+                      id="input-with-icon-adornment"
+                      startAdornment={
+                        <InputAdornment position="start">
+                          <PaidIcon />
+                        </InputAdornment>
+                      }
+                      onChange={(e) => setAmount(e.target.value)}
+                      value={amount}
+                    />
+                  </FormControl>
+                  <DatePicker changeDate={setDate} />
+                  <Button
+                    variant="contained"
+                    endIcon={<SendIcon />}
+                    onClick={() => {
+                      setTransaction([
+                        ...transaction,
+                        { type, name, amount, date },
+                      ]);
+                      setAmount("");
+                      setName("");
+                      setDate("");
+                    }}
+                  >
+                    Add Transaction
+                  </Button>
+                </Stack>
+              </Item>
+              <Item>
+                <ExpenseChart data={transaction} />
+              </Item>
             </Stack>
           </Item>
           <Item>
-            <ExpenseChart />
+            <ExpenseTable data={transaction} />
           </Item>
         </Stack>
+
+        {/* <ExpenseTable /> */}
       </Paper>
     </div>
   );

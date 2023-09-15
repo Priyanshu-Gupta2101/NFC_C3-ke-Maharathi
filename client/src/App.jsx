@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
 import ExpenseTracker from "./components/Expense Tracker/ExpenseTracker";
 import Faq from "./pages/Faq";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/blogs/:id" element={<BlogViewTest />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/expense-tracker" element={<ExpenseTracker />} />
+      <Route path="/abc" element={<Home />} />
     </Routes>
   );
 }
