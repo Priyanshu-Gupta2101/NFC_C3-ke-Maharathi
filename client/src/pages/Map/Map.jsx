@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import L from "leaflet";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
+import ShikshaBot from "../../components/ShikshaBot/ShikshaBot";
 
 import "leaflet/dist/leaflet.css";
 
@@ -81,6 +82,7 @@ const MapBank = () => {
         )}
         <div id="map" style={{ width: "100%", height: "400px" }}></div>
       </div>
+      <ShikshaBot />
     </>
   );
 };

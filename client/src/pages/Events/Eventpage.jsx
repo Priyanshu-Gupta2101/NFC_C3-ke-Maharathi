@@ -4,6 +4,7 @@ import events from "./events.json"; // Import events data
 import Navbar from "../../components/Navbar";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import ShikshaBot from "../../components/ShikshaBot/ShikshaBot";
 
 function Eventpage() {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ function Eventpage() {
           </div>
         ))}
       </div>
+      <ShikshaBot />
     </>
   );
 }
