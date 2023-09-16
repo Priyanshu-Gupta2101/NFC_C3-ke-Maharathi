@@ -4,11 +4,15 @@ import Speech from "react-text-to-speech";
 import blogs from "./blogs.json";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/FooterComp/Footer";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 function BlogTest() {
   const [blog, setBlog] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const { id } = useParams();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const selectedBlog = blogs.find((item) => item.id === parseInt(id, 10));
@@ -23,9 +27,9 @@ function BlogTest() {
     setIsSpeaking(false);
   };
 
-  //   if (!blog) {
-  //     return <div>Loading...</div>;
-  //   }
+  if (!blog) {
+    return <div>{t("Loading...")}</div>;
+  }
 
   return (
     <>
@@ -34,25 +38,25 @@ function BlogTest() {
         <div className="w-full mx-auto space-y-4 text-center">
           {/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
           <h1 className="text-4xl font-bold leadi md:text-5xl">
-            Interdum et malesuada fames ac ante ipsum primis in faucibus?
+            {t(`${blog.title}`)}
           </h1>
           <p className="text-sm dark:text-gray-400">
-            by
+            {t("by")}{" "}
             <a
               rel="noopener noreferrer"
               href="#"
               target="_blank"
               className="underline dark:text-violet-400"
             >
-              <span itemProp="name">Leroy Jenkins</span>
-            </a>
-            on
+              <span itemProp="name">{t(`${blog.author}`)}</span>
+            </a>{" "}
+            {t("on")}{" "}
             <time dateTime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
           </p>
         </div>
         <img src="/test.jpg" className="mt-4 w-full rounded-lg" />
         <div className="dark:text-gray-100">
-          <p>Insert the actual text content here...</p>
+          <p>{t(`${blog.description}`)}</p>
         </div>
         <div className="pt-12 border-t dark:border-gray-700">
           <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
@@ -71,6 +75,19 @@ function BlogTest() {
               </p>
             </div>
           </div>
+          <button
+            className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg"
+            onClick={handleSpeak}
+          >
+            Hear This Blog
+          </button>
+          {isSpeaking && (
+            <Speech
+              text={`${blog.title} by ${blog.author}. ${blog.description}`}
+              onStart={handleSpeak}
+              onEnd={handleStop}
+            />
+          )}
           <div className="flex justify-center pt-4 space-x-4 align-center">
             <a
               rel="noopener noreferrer"
@@ -130,19 +147,6 @@ function BlogTest() {
             </a>
           </div>
         </div>
-        <button
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg"
-          onClick={handleSpeak}
-        >
-          Hear This Blog
-        </button>
-        {isSpeaking && (
-          <Speech
-            text={`${blog.title} by ${blog.author}. ${blog.description}`}
-            onStart={handleSpeak}
-            onEnd={handleStop}
-          />
-        )}
       </article>
       <Footer />
     </>

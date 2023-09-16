@@ -10,7 +10,8 @@ import ExpenseTracker from "./components/Expense Tracker/ExpenseTracker";
 import Faq from "./pages/Faq";
 import MapBank from "./pages/Map/Map";
 import Home from "./pages/Home";
-
+import BlogTest from "./pages/Blogs/BlogTest";
+import ContactPage from "./pages/Contact/ContactPage";
 
 function App() {
   return (
@@ -19,14 +20,15 @@ function App() {
       <Route path="/room" element={<Room />} />
       <Route path="/register/user" element={<RegUser />} />
       <Route path="/register/volunteer" element={<RegVol />} />
-      <Route path="/emiCalculator" element={<EMICalculator/>} />
+      <Route path="/emiCalculator" element={<EMICalculator />} />
       <Route path="/blogs" element={<BlogList />} />
-      <Route path="/blogs/:id" element={<BlogViewTest />} />
+      <Route path="/blogs/:id" element={<BlogTest />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/expense-tracker" element={<ExpenseTracker />} />
       {/* <Route path="/test" element={<BlogTest />} /> */}
       <Route path="/map-banks" element={<MapBank />} />
       <Route path="/abc" element={<Home />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
 }

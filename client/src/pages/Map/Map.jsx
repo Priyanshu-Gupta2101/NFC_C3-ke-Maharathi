@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import L from "leaflet";
 import axios from "axios";
+import Navbar from "../../components/Navbar";
 
 import "leaflet/dist/leaflet.css";
 
@@ -66,18 +67,21 @@ const MapBank = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Your Location Coordinates:</h2>
-      {latitude !== null && longitude !== null ? (
-        <div>
-          <p>Latitude: {latitude}</p>
-          <p>Longitude: {longitude}</p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <div id="map" style={{ width: "100%", height: "400px" }}></div>
-    </div>
+    <>
+      <Navbar />
+      <div className="py-[100px] flex flex-col items-center">
+        <h2>Your Location Coordinates:</h2>
+        {latitude !== null && longitude !== null ? (
+          <div>
+            <p>Latitude: {latitude}</p>
+            <p>Longitude: {longitude}</p>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+        <div id="map" style={{ width: "100%", height: "400px" }}></div>
+      </div>
+    </>
   );
 };
 

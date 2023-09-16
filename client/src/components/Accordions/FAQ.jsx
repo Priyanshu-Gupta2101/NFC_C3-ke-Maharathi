@@ -3,17 +3,21 @@
 /* import Accordion component */
 import Accordion from "./Accordion";
 import { accordions } from "./FAQData";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 function FAQ() {
+  const { t } = useTranslation();
   return (
     <div className="max-w-[700px] px-[15px] mx-auto py-5 mt-[8em] mb-[8em]">
       <h1 className="text-center text-xl font-semibold mb-8">
-        FREQUENTLY ASKED QUESTIONS
+        {t("FREQUENTLY ASKED QUESTIONS")}
       </h1>
 
       <h4 className="text-center text-md font-normal mb-5">
-        We here at Shiksha want to simplify things for you. Read some of the
-        frequently asked questions to help you understand more about us.
+        {t(
+          "We here at Shiksha want to simplify things for you. Read some of the frequently asked questions to help you understand more about us."
+        )}
       </h4>
       {/* main content here */}
       <div className="max-w-[700px] w-full mx-auto mt-10 flex flex-col gap-4">
@@ -29,7 +33,9 @@ function FAQ() {
         })}
       </div>
       <h4 className="text-center text-md font-normal mt-5">
-        If you have any more questions feel free to contact us via email at
+        {t(
+          "If you have any more questions feel free to contact us via email at"
+        )}
         <h4 className="font-semibold">info@www.shiksha.com</h4> .
       </h4>
     </div>
