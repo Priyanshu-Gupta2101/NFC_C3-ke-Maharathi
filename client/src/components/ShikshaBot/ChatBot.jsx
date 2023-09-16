@@ -9,7 +9,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const systemMessage = {
   role: "system",
