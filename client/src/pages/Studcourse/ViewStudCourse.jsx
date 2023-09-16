@@ -45,6 +45,8 @@ const ViewStudCourse = () => {
                   className=" w-full object-cover object-center"
                 />
               </div>
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg"></div>
+            </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg"></div>
           </div>
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
