@@ -101,7 +101,7 @@ const RegVol = () => {
           token: res.data.token,
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate("/home");
+        navigate("/teacher/home");
       }
     } catch (error) {
       console.error("Error during registration:", error);
