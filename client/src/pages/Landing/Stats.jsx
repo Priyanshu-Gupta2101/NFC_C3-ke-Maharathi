@@ -1,3 +1,5 @@
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 const stats = [
   { id: 1, name: "New volunteer annually", value: "100" },
   { id: 2, name: "No. of Blogs", value: "100" },
@@ -5,6 +7,7 @@ const stats = [
 ];
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -14,9 +17,11 @@ export default function Example() {
               key={stat.id}
               className="mx-auto flex max-w-xs flex-col gap-y-4"
             >
-              <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
+              <dt className="text-base leading-7 text-gray-600">
+                {t(`${stat.name}`)}
+              </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                {stat.value}
+                {t(`${stat.value}`)}
               </dd>
             </div>
           ))}

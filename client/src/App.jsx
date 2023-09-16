@@ -20,6 +20,8 @@ import Quiz from "./pages/Quiz/Quiz";
 import Analytics from "./pages/Analytics/Analytics";
 import Profile from "./pages/Profile/Profile";
 import MapBank from "./pages/Map/Map";
+import BlogTest from "./pages/Blogs/BlogTest";
+import ContactPage from "./pages/Contact/ContactPage";
 
 function App() {
   return (
@@ -28,9 +30,9 @@ function App() {
       <Route path="/room" element={<Room />} />
       <Route path="/register/user" element={<RegUser />} />
       <Route path="/register/volunteer" element={<RegVol />} />
-      <Route path="/emiCalculator" element={<EMICalculator/>} />
+      <Route path="/emiCalculator" element={<EMICalculator />} />
       <Route path="/blogs" element={<BlogList />} />
-      <Route path="/blogs/:id" element={<BlogViewTest />} />
+      <Route path="/blogs/:id" element={<BlogTest />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/expense-tracker" element={<ExpenseTracker />} />
       <Route path="/student" element={<StudentRoutes />}>
@@ -49,6 +51,7 @@ function App() {
       {/* <Route path="/test" element={<BlogTest />} /> */}
       <Route path="/map-banks" element={<MapBank />} />
       <Route path="/abc" element={<Home />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
 }

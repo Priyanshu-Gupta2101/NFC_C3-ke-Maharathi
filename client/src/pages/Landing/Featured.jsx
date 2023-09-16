@@ -3,6 +3,8 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 const features = [
   {
@@ -38,6 +40,7 @@ const features = [
 ];
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -45,16 +48,17 @@ export default function Example() {
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
-                Our feature
+                {t("Our feature")}
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Empowering Underprivileged Communities through Financial
-                Literacy and Banking Inclusion
+                {t(
+                  "Empowering Underprivileged Communities through Financial Literacy and Banking Inclusion"
+                )}
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                At the heart of our mission lies a commitment to addressing the
-                pressing challenges faced by underprivileged communities
-                worldwide.
+                {t(
+                  "At the heart of our mission lies a commitment to addressing the pressing challenges faced by underprivileged communities worldwide."
+                )}
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
@@ -64,18 +68,18 @@ export default function Example() {
                         className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
                         aria-hidden="true"
                       />
-                      {feature.name}
+                      {t(`${feature.name}`)}
                     </dt>{" "}
-                    <dd className="inline">{feature.description}</dd>
+                    <dd className="inline">{t(`${feature.description}`)}</dd>
                   </div>
                 ))}
               </dl>
             </div>
           </div>
           <img
-            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            src="/undraw.svg"
             alt="Product screenshot"
-            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 lg:flex lg:items-center"
+            className="w-[48rem] max-w-none rounded-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 lg:flex lg:items-center"
             width={2432}
             height={1442}
           />
