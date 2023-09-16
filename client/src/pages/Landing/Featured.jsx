@@ -6,21 +6,33 @@ import {
 
 const features = [
   {
-    name: "Push to deploy.",
+    name: "Delivering Comprehensive Education.",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Our platform offers tailored financial education from basic principles to advanced strategies for underprivileged communities.",
     icon: CloudArrowUpIcon,
   },
   {
-    name: "SSL certificates.",
+    name: "Promoting Banking Access.",
     description:
-      "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+      "We facilitate access to banking by guiding users on account opening, financial products, and navigating the banking system.",
     icon: LockClosedIcon,
   },
   {
-    name: "Database backups.",
+    name: "Interactive Learning.",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "Our user-friendly tools, including quizzes and games, make financial learning engaging and effective.",
+    icon: ServerIcon,
+  },
+  {
+    name: "Fostering Empowerment.",
+    description:
+      "We empower individuals to make informed financial decisions, breaking the cycle of poverty.",
+    icon: ServerIcon,
+  },
+  {
+    name: "Community Engagement.",
+    description:
+      "Our platform fosters a sense of belonging and support through forums and events, creating a stronger community.",
     icon: ServerIcon,
   },
 ];
@@ -29,19 +41,20 @@ export default function Example() {
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
-                Deploy faster
+                Our feature
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                A better workflow
+                Empowering Underprivileged Communities through Financial
+                Literacy and Banking Inclusion
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores impedit perferendis suscipit eaque, iste dolor
-                cupiditate blanditiis ratione.
+                At the heart of our mission lies a commitment to addressing the
+                pressing challenges faced by underprivileged communities
+                worldwide.
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
@@ -62,7 +75,7 @@ export default function Example() {
           <img
             src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
             alt="Product screenshot"
-            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 lg:flex lg:items-center"
             width={2432}
             height={1442}
           />

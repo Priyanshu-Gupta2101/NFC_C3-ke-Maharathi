@@ -16,6 +16,13 @@ import {
 } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
@@ -67,6 +74,14 @@ function classNames(...classes) {
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const [lang, setLang] = useState("en");
+
+  const handleChange = (e) => {
+    i18next.changeLanguage(e.target.value);
+    setLang(e.target.value);
+  };
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -91,7 +106,7 @@ export default function Navbar() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
+              {t("Product")}
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -156,24 +171,34 @@ export default function Navbar() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
+            {t("Features")}
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
+            {t("Marketplace")}
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
+            {t("Company")}
           </a>
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-gray-900 px-12"
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
+          <FormControl
+            variant="standard"
+            sx={{ m: 1, minWidth: 130, paddingRight: 10 }}
           >
-            Log in
-          </a>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={lang}
+              onChange={handleChange}
+              label="Age"
+            >
+              <MenuItem value="en">EN</MenuItem>
+              <MenuItem value="chi">HIN</MenuItem>
+              <MenuItem value="ko">TML</MenuItem>
+            </Select>
+          </FormControl>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
+            {t("Log in")} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -199,7 +224,7 @@ export default function Navbar() {
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Close menu</span>
+              <span className="sr-only">{t("Close menu")}</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
@@ -221,7 +246,7 @@ export default function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                  {t("Log in")}
                 </a>
               </div>
             </div>

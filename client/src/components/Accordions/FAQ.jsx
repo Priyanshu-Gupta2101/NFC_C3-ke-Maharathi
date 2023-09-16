@@ -29,7 +29,7 @@ function FAQ() {
         })}
       </div>
       <h4 className="text-center text-md font-normal mt-5">
-        If you have any more questions feel free to contact us via email at{" "}
+        If you have any more questions feel free to contact us via email at
         <h4 className="font-semibold">info@www.shiksha.com</h4> .
       </h4>
     </div>

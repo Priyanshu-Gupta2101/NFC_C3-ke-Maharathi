@@ -1,5 +1,6 @@
 import RegUser from "./pages/AuthPages/Register/RegisterUser";
 import RegVol from "./pages/AuthPages/RegisterVolunteer/RegisterVolunteer";
+import EMICalculator from "./pages/emiCalculatorPage/emiCalculator";
 import Room from "./pages/Room";
 import BlogList from "./pages/Blogs/BlogList";
 import BlogViewTest from "./pages/Blogs/BlogView";
@@ -18,6 +19,7 @@ import ViewCourse from "./pages/ViewCourse/ViewCourse";
 import Quiz from "./pages/Quiz/Quiz";
 import Analytics from "./pages/Analytics/Analytics";
 import Profile from "./pages/Profile/Profile";
+import MapBank from "./pages/Map/Map";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
       <Route path="/room" element={<Room />} />
       <Route path="/register/user" element={<RegUser />} />
       <Route path="/register/volunteer" element={<RegVol />} />
+      <Route path="/emiCalculator" element={<EMICalculator/>} />
       <Route path="/blogs" element={<BlogList />} />
       <Route path="/blogs/:id" element={<BlogViewTest />} />
       <Route path="/faq" element={<Faq />} />
@@ -43,6 +46,9 @@ function App() {
         <Route path="analytics" element={<Analytics />} />
         <Route path="home" element={<Profile />} />
       </Route>
+      {/* <Route path="/test" element={<BlogTest />} /> */}
+      <Route path="/map-banks" element={<MapBank />} />
+      <Route path="/abc" element={<Home />} />
     </Routes>
   );
 }

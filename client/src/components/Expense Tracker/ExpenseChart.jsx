@@ -1,23 +1,51 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import ReactApexChart from "react-apexcharts";
 
-const App = () => {
-  // Sample data for the pie chart
-  const data = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-    datasets: [
-      {
-        data: [12, 19, 3, 5, 2],
-        backgroundColor: ["red", "blue", "yellow", "green", "purple"],
-      },
-    ],
+const PieChart = ({ data }) => {
+  const options = {
+    chart: {
+      type: "pie",
+      outerWidth: 1500,
+      outerHeight: 1500,
+    },
+    labels: data.map((item) => item.label),
   };
 
   return (
     <div>
-      <h1>Simple Pie Chart Example</h1>
-      <Pie data={data} />
+      <ReactApexChart
+        options={options}
+        series={data.map((item) => item.value)}
+        type="pie"
+        height={1500}
+      />
     </div>
+  );
+};
+
+const App = (props) => {
+  // Sample data for the pie chart
+  // console.log(props);
+  const { data } = props;
+  let spending = 0,
+    earning = 0;
+  data.forEach((item) => {
+    if (item.type === 1) {
+      earning += Number(item.amount);
+    } else {
+      spending += Number(item.amount);
+    }
+  });
+
+  const row = [
+    { label: "Earnings", value: earning },
+    { label: "Spend", value: spending },
+  ];
+
+  return (
+    <>
+      <PieChart data={row} />
+    </>
   );
 };
 
