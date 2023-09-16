@@ -94,7 +94,7 @@ const RegUser = () => {
           token: res.data.token,
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate("/home");
+        navigate("/student/home");
       }
     } catch (error) {
       console.error("Error during registration:", error);
