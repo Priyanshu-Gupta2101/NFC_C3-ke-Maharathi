@@ -32,41 +32,20 @@ const ViewStudCourse = () => {
     getdata();
   }, []);
   return (
-    <SidebarStud>
+    <>
       <Navbar />
       <div className="bg-white">
         <div className="pt-6">
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-              <img
-                src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png"
-                alt="Two each of gray, white, and black shirts laying flat."
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              <div className="aspect-h-5 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={`http://localhost:5000/uploads/${obj?.coverImage?.filename}`}
                   alt="Model wearing plain black basic tee."
                   className=" w-full object-cover object-center"
                 />
               </div>
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                <img
-                  src="https://www.pngitem.com/pimgs/m/515-5153756_one-piece-luffy-hd-png-download.png"
-                  alt="Model wearing plain gray basic tee."
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-            </div>
-            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-              <img
-                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ab60cab7-0751-4261-a1f6-268e74c937e3/damja6y-69a60c64-75e7-46bf-ad83-936a5f7e7a96.png/v1/fill/w_648,h_1234/kid_goku_by_brusselthesaiyan_damja6y-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk1MCIsInBhdGgiOiJcL2ZcL2FiNjBjYWI3LTA3NTEtNDI2MS1hMWY2LTI2OGU3NGM5MzdlM1wvZGFtamE2eS02OWE2MGM2NC03NWU3LTQ2YmYtYWQ4My05MzZhNWY3ZTdhOTYucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.UfcwcI5wA0h1zioiduIOiYK8SoCQjW18FfcZHlmSlVc"
-                alt="Model wearing plain white basic tee."
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
+            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg"></div>
           </div>
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -172,7 +151,7 @@ const ViewStudCourse = () => {
           </div>
         </div>
       </div>
-    </SidebarStud>
+    </>
   );
 };
 

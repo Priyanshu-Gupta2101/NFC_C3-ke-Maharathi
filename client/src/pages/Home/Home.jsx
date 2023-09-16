@@ -35,7 +35,7 @@ const Home = () => {
     }
   };
   return (
-    <SidebarStud>
+    <>
       <Navbar />
       <div className="house">
         {arr?.map((obj) => (
@@ -115,7 +115,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-    </SidebarStud>
+    </>
   );
 };
 

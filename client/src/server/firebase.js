@@ -1,4 +1,5 @@
 import firebase from "firebase";
+const user = JSON.parse(localStorage.getItem("auth"));
 
 const config = {
   databaseURL: "https://vediocallcookies-default-rtdb.firebaseio.com/",
@@ -11,9 +12,10 @@ export const db = firebase;
 
 var firepadRef = firebase.database().ref();
 
-export const userName = window.location.pathname.includes("room")
-  ? prompt("Enter your name")
-  : "User " + Math.floor(Math.random() * 1000) + 1;
+// export const userName = window.location.pathname.includes("room")
+//   ? user.name
+//   : "User " + Math.floor(Math.random() * 1000) + 1;
+export const userName = localStorage.getItem("auth") ? user.user.name : "guest";
 const urlparams = new URLSearchParams(window.location.search);
 const roomId = urlparams.get("id");
 

@@ -3,8 +3,7 @@ import RegVol from "./pages/AuthPages/RegisterVolunteer/RegisterVolunteer";
 import EMICalculator from "./pages/emiCalculatorPage/emiCalculator";
 import Room from "./pages/Room";
 import BlogList from "./pages/Blogs/BlogList";
-import BlogViewTest from "./pages/Blogs/BlogView";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
 import ExpenseTracker from "./components/Expense Tracker/ExpenseTracker";
 import Faq from "./pages/Faq";
@@ -22,6 +21,9 @@ import Profile from "./pages/Profile/Profile";
 import MapBank from "./pages/Map/Map";
 import BlogTest from "./pages/Blogs/BlogTest";
 import ContactPage from "./pages/Contact/ContactPage";
+import LogOut from "./components/Logout";
+import Eventpage from "./pages/Events/Eventpage";
+import TestHome from "./pages/Home";
 
 function App() {
   return (
@@ -49,8 +51,11 @@ function App() {
         <Route path="home" element={<Profile />} />
       </Route>
       {/* <Route path="/test" element={<BlogTest />} /> */}
+      <Route path="/logout" element={<LogOut />} />
       <Route path="/map-banks" element={<MapBank />} />
       <Route path="/abc" element={<Home />} />
+      <Route path="/events" element={<Eventpage />} />
+      <Route path="/test" element={<TestHome />} />
       <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );

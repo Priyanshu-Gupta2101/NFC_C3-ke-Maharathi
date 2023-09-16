@@ -26,8 +26,8 @@ import Select from "@mui/material/Select";
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Events", href: "#" },
+  { name: "My Courses", href: "/student/courses" },
 ];
 
 const products = [
@@ -38,27 +38,21 @@ const products = [
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers",
-    href: "#",
+    name: "EMI Calculator",
+    description: "Get you EMI at your finger tips",
+    href: "/emiCalculator",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
-    href: "#",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Integrations",
-    description: "Connect with third-party tools",
-    href: "#",
+    name: "Map",
+    description: "Connect with nearby banks",
+    href: "/map-banks",
     icon: SquaresPlusIcon,
   },
   {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
+    name: "FAQ",
+    description: "Get the answers frequently asked question",
+    href: "/faq",
     icon: ArrowPathIcon,
   },
 ];
@@ -88,8 +82,13 @@ export default function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+        <div
+          className="flex lg:flex-1"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <a className="-m-1.5 p-1.5">
             <span className="text-black-700 text-2xl">WealthWise</span>
           </a>
         </div>
@@ -140,7 +139,7 @@ export default function Navbar() {
                       </div>
                       <div className="flex-auto">
                         <a
-                          href={item.href}
+                          // href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
@@ -155,7 +154,9 @@ export default function Navbar() {
                   {callsToAction.map((item) => (
                     <a
                       key={item.name}
-                      href={item.href}
+                      onClick={() => {
+                        navigate(item.href);
+                      }}
                       className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                     >
                       <item.icon
@@ -170,14 +171,29 @@ export default function Navbar() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            {t("Features")}
+          <a
+            onClick={() => {
+              navigate("/blogs");
+            }}
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            {t("Featured")}
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            {t("Marketplace")}
+          <a
+            onClick={() => {
+              navigate("/events");
+            }}
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            {t("Events")}
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            {t("Company")}
+          <a
+            onClick={() => {
+              navigate("/student/courses");
+            }}
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            {t("My Courses")}
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
@@ -197,9 +213,35 @@ export default function Navbar() {
               <MenuItem value="ko">TML</MenuItem>
             </Select>
           </FormControl>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            {t("Log in")} <span aria-hidden="true">&rarr;</span>
-          </a>
+          {localStorage.getItem("auth") ? (
+            <a
+              onClick={() => {
+                navigate("/logout");
+              }}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              {t("Log out")} <span aria-hidden="true">&rarr;</span>
+            </a>
+          ) : (
+            <>
+              <a
+                onClick={() => {
+                  navigate("/register/user");
+                }}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {t("User Log in")} <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                onClick={() => {
+                  navigate("/register/volunteer");
+                }}
+                className="text-sm font-semibold leading-6 text-gray-900 mx-3"
+              >
+                {t("Vol. Log in")} <span aria-hidden="true">&rarr;</span>
+              </a>
+            </>
+          )}
         </div>
       </nav>
       <Dialog
@@ -234,7 +276,10 @@ export default function Navbar() {
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    onClick={() => {
+                      console.log(item.href);
+                      navigate(item.href);
+                    }}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
@@ -246,7 +291,13 @@ export default function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  {t("Log in")}
+                  {t("User Log In")}
+                </a>
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  {t("Vol. Log In")}
                 </a>
               </div>
             </div>
