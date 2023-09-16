@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './emiCalculator.css'
+import "./emiCalculator.css";
 import Navbar from "../../components/Navbar";
 
 function EMICalculator() {
@@ -16,7 +16,11 @@ function EMICalculator() {
   const [rateOfInterestError, setRateOfInterestError] = useState("input");
 
   const calculateEMI = () => {
-    if (!Number(rateOfInterest) || !Number(tenure) || !Number(totalLoanAmount)) {
+    if (
+      !Number(rateOfInterest) ||
+      !Number(tenure) ||
+      !Number(totalLoanAmount)
+    ) {
       return;
     }
     let interest = rateOfInterest / 12 / 100;
@@ -68,15 +72,19 @@ function EMICalculator() {
 
   return (
     <>
-     <Navbar />
-      <div className="emi">
+      <Navbar />
+      <div className="emi mt-[6.5em]">
         <h1>EMI Calculator</h1>
         <div className="loan-container">
           <div className="title-container">
             <label htmlFor="loan-amount" className="label">
               Loan amount
             </label>
-            <div className={`value-container ${totalLoanError.includes("error") ? "error" : ""}`}>
+            <div
+              className={`value-container ${
+                totalLoanError.includes("error") ? "error" : ""
+              }`}
+            >
               <span>₹</span>
               <input
                 type="number"
@@ -106,7 +114,11 @@ function EMICalculator() {
             <label htmlFor="interest" className="label">
               Rate of interest (p.a)
             </label>
-            <div className={`value-container ${rateOfInterestError.includes("error") ? "error" : ""}`}>
+            <div
+              className={`value-container ${
+                rateOfInterestError.includes("error") ? "error" : ""
+              }`}
+            >
               <input
                 type="number"
                 className={rateOfInterestError}
@@ -114,7 +126,13 @@ function EMICalculator() {
                 value={rateOfInterest}
                 onChange={handleRateOfInterestChange}
               />
-              <span className={`${rateOfInterestError.includes("error") ? "error" : ""}`}>%</span>
+              <span
+                className={`${
+                  rateOfInterestError.includes("error") ? "error" : ""
+                }`}
+              >
+                %
+              </span>
             </div>
           </div>
           <input
@@ -135,7 +153,11 @@ function EMICalculator() {
             <label htmlFor="tenure" className="label">
               Loan tenure
             </label>
-            <div className={`value-container ${tenureError.includes("error") ? "error" : ""}`}>
+            <div
+              className={`value-container ${
+                tenureError.includes("error") ? "error" : ""
+              }`}
+            >
               <input
                 type="number"
                 className={tenureError}
@@ -168,7 +190,9 @@ function EMICalculator() {
 
           <div className="values">
             <span>Principal amount</span>
-            <span>₹ {totalLoanAmount ? totalLoanAmount.toLocaleString("en-IN") : 0}</span>
+            <span>
+              ₹ {totalLoanAmount ? totalLoanAmount.toLocaleString("en-IN") : 0}
+            </span>
           </div>
 
           <div className="values">

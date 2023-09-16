@@ -66,7 +66,7 @@ function BlogTest() {
               className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"
             />
             <div className="flex flex-col">
-              <h4 className="text-lg font-semibold">Leroy Jenkins</h4>
+              <h4 className="text-lg font-semibold">{t(`${blog.author}`)}</h4>
               <p className="dark:text-gray-400">
                 Sed non nibh iaculis, posuere diam vitae, consectetur neque.
                 Integer velit ligula, semper sed nisl in, cursus commodo elit.
