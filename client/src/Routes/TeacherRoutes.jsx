@@ -8,7 +8,9 @@ const TeacherRoutes = () => {
   const [auth, setAuth] = useAuth();
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get(`http://localhost:5000/api/user/teacher`);
+      const res = await axios.get(
+        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/teacher`
+      );
       if (res.data.ok) {
         setOk(true);
       } else {

@@ -20,7 +20,7 @@ const ContactPage = () => {
     console.log(name, email, subject, message);
 
     const response = await axios.post(
-      "http://localhost:5000/api/v1/contact/send",
+      "http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/contact/send",
       {
         name,
         email,
