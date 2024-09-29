@@ -18,7 +18,7 @@ const ViewStudCourse = () => {
     const getdata = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/v1/getSingleCourse/${id}`
+          `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/getSingleCourse/${id}`
         );
         if (res?.status === 200) {
           console.log(res.data);
@@ -40,7 +40,7 @@ const ViewStudCourse = () => {
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-5 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src={`http://localhost:5000/uploads/${obj?.coverImage?.filename}`}
+                  src={`http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj?.coverImage?.filename}`}
                   alt="Model wearing plain black basic tee."
                   className=" w-full object-cover object-center mt-[3.5em]"
                 />
@@ -69,7 +69,7 @@ const ViewStudCourse = () => {
                   {selectedVideo && (
                     <div className="mt-4">
                       <video
-                        src={`http://localhost:5000/uploads/${selectedVideo.filename}`}
+                        src={`http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${selectedVideo.filename}`}
                         controls
                       ></video>
                       <button

@@ -1,3 +1,4 @@
 /node_modules
 /packagelock.json
 *.mp4
+.env
