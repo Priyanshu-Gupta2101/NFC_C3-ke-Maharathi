@@ -17,7 +17,7 @@ const StudQuiz = () => {
     const fetchQuiz = async () => {
       try {
         const res = await axios.get(
-          `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/getQuiz/${id}`
+          `https://wealthwise-server.vercel.app/api/v1/getQuiz/${id}`
         );
         if (res?.status === 200) {
           const { data } = res;

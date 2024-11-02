@@ -62,7 +62,7 @@ const RegVol = () => {
 
       // Make a POST request to the specified endpoint
       const response = await axios.post(
-        "https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/auth/volunteer/register",
+        "https://wealthwise-server.vercel.app/api/v1/auth/volunteer/register",
         postData
       );
 
@@ -89,7 +89,7 @@ const RegVol = () => {
 
       // Make a POST request to the specified endpoint
       const res = await axios.post(
-        "https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/auth/volunteer/login",
+        "https://wealthwise-server.vercel.app/api/v1/auth/volunteer/login",
         postData
       );
 

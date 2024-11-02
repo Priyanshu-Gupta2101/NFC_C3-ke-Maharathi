@@ -12,7 +12,7 @@ const CourseforStud = () => {
     const getCorsesforStud = async () => {
       try {
         const { data } = await axios.get(
-          `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/getAllstudentCourse/${auth?.user?._id}`
+          `https://wealthwise-server.vercel.app/api/v1/getAllstudentCourse/${auth?.user?._id}`
         );
         if (data) {
           setArr(data?.courses);
@@ -38,7 +38,7 @@ const CourseforStud = () => {
           >
             <div className="group relative bg-gray-200 rounded-lg shadow">
               <img
-                src={`https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
+                src={`https://wealthwise-server.vercel.app/uploads/${obj.coverImage.filename}`}
                 alt="Course cover image"
                 className="w-full h-full object-cover object-center rounded-lg"
               />
