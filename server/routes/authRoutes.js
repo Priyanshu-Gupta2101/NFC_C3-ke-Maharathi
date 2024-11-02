@@ -50,7 +50,8 @@ router.post("/volunteer/login", async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({ msg: "Please fill all the fields" });
     }
-    const user = await Volunteer.findOne({ email });
+    const user = await Volunteer.findOne({ email: email });
+
     if (!user) {
       return res.status(400).json({
         success: false,
