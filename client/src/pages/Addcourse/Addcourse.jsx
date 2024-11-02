@@ -28,7 +28,7 @@ const Addcourse = () => {
       });
 
       const response = await axios.post(
-        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/addCourse?authId=${auth?.user?._id}`,
+        `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/addCourse?authId=${auth?.user?._id}`,
         formData,
         {
           headers: {

@@ -24,7 +24,7 @@ const Quiz = () => {
     const getCourse = async () => {
       try {
         const res = await axios.get(
-          `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/getSingleTeacherAllCourses/${auth?.user?._id}`
+          `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/getSingleTeacherAllCourses/${auth?.user?._id}`
         );
 
         if (res?.status === 200) {
@@ -50,7 +50,7 @@ const Quiz = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/addQuiz/${id}`,
+        `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/addQuiz/${id}`,
         {
           question,
           options,
@@ -75,7 +75,7 @@ const Quiz = () => {
             <div key={obj._id} style={gridItemStyle}>
               <h3>{obj.title}</h3>
               <img
-                src={`http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
+                src={`https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
                 alt=""
                 style={imageStyle}
               />

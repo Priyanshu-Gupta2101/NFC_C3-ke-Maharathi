@@ -19,7 +19,7 @@ const ViewCourse = () => {
     const getCourse = async () => {
       try {
         const res = await axios.get(
-          `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/getSingleTeacherAllCourses/${auth?.user?._id}`
+          `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/getSingleTeacherAllCourses/${auth?.user?._id}`
         );
         if (res?.status === 200) {
           setArr(res.data);
@@ -48,7 +48,7 @@ const ViewCourse = () => {
       formData.append("price", price);
       formData.append("coverImage", coverImage);
       const res = await axios.put(
-        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/updateCourse/${id}`,
+        `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/updateCourse/${id}`,
         formData,
         {
           headers: {
@@ -68,7 +68,7 @@ const ViewCourse = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/removeCourse/${id}`
+        `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/removeCourse/${id}`
       );
       if (res?.status === 200) {
         alert("Course deleted Successfully");
@@ -102,7 +102,7 @@ const ViewCourse = () => {
                 <td style={tableCellStyle}>{obj.price}</td>
                 <td style={tableCellStyle}>
                   <img
-                    src={`http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
+                    src={`https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
                     alt=""
                     style={tableImageStyle}
                   />

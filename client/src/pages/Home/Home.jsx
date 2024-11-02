@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const getAllCourses = async () => {
       const res = await axios.get(
-        "http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/allcourses"
+        "https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/allcourses"
       );
       if (res?.status === 200) {
         const { data } = res;
@@ -26,7 +26,7 @@ const Home = () => {
     try {
       console.log(auth?.user);
       const res = await axios.put(
-        `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/updateEnroll/${id}?studId=${auth?.user?._id}`
+        `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/v1/updateEnroll/${id}?studId=${auth?.user?._id}`
       );
       if (res?.status == 200) {
         alert("Congratulations you are enrolled in this course");
@@ -61,7 +61,7 @@ const Home = () => {
                 </div>
                 <div className="image">
                   <img
-                    src={`http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
+                    src={`https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/uploads/${obj.coverImage.filename}`}
                     alt=""
                   />
                 </div>

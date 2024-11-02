@@ -10,7 +10,7 @@ const Analytics = () => {
     const getAnalytics = async () => {
       try {
         const res = await axios.get(
-          `http://https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/analytics/${auth?.user?._id}`
+          `https://wealthwise-server-nuyhus6uf-priyanshu-gupta2101.vercel.app/api/user/analytics/${auth?.user?._id}`
         );
         if (res && res.status === 200) {
           setArr(res.data);
